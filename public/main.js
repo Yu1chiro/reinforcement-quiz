@@ -11,8 +11,8 @@ const hiraganaData = {
     'き': { romaji: 'ki', level: 2, probability: 1 },
     'く': { romaji: 'ku', level: 2, probability: 1 },
     // Level 3 - Hard
-    'さ': { romaji: 'sa', level: 3, probability: 1 },
-    'し': { romaji: 'shi', level: 3, probability: 1 }
+    'け': { romaji: 'ke', level: 3, probability: 1 },
+    'こ': { romaji: 'ko', level: 3, probability: 1 }
 };
 let countdownInterval;
 let timeLeft =70; // 3 menit dalam detik
