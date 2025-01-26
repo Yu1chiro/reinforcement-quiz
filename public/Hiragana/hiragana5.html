@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana 1</title>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/Hiragana/services/hiragana5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+
+</head>
+<body class="bg-center bg-no-repeat bg-[url('/bg.png')] bg-gray-700 bg-blend-multiply min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div id="startContainer" class="text-center my-8">
+            <button id="startGame" class="bg-green-500 font-semibold text-white px-6 py-3 rounded-lg hover:bg-green-600">
+                Start Game
+            </button>
+        </div>
+        <div id="gameContainer">
+              <!-- Mode Switch -->
+              <div class="text-center mb-6">
+                <button id="switchMode" class="bg-blue-500 font-semibold text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Switch Mode: Hiragana ⇄ Romaji
+                </button>
+            </div>
+            <!-- Flashcard Container -->
+            <div class="max-w-md mx-auto">
+                <div id="flashcard" class="bg-white rounded-xl shadow-lg p-8 mb-4">
+                    <div id="timer" class="text-2xl font-bold text-center my-4"></div>
+                    <div class="text-center">
+                        <p class="font-semibold text-red-600" id="timer"></p>
+                        <p id="question" class="text-8xl mb-4"></p>
+                        <input autocomplete="off" type="text" id="answer" 
+                               class="w-full p-2 border rounded mb-4 text-center" 
+                               placeholder="Masukkan jawaban">
+                        <button id="checkAnswer" 
+                                class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+    
+                <!-- Final Results (hidden by default) -->
+                <div id="finalResults" class="hidden bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-bold mb-4">Hasil Akhir</h2>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="text-center p-4 bg-green-100 rounded">
+                            <p id="finalCorrect" class="text-2xl font-bold text-green-600">0</p>
+                            <p class="text-sm text-gray-600">Jawaban Benar</p>
+                        </div>
+                        <div class="text-center p-4 bg-red-100 rounded">
+                            <p id="finalWrong" class="text-2xl font-bold text-red-600">0</p>
+                            <p class="text-sm text-gray-600">Jawaban Sering Salah</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-green-600 mb-2">Karakter yang Benar:</h3>
+                            <div id="correctChars" class="overflow-x-auto"></div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-red-600 mb-2">Karakter yang sering Salah:</h3>
+                            <div id="wrongChars" class="overflow-x-auto"></div>
+                        </div>
+                    </div>
+                    <button id="restartGame" class="mt-6 w-full bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+                        Mulai Ulang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

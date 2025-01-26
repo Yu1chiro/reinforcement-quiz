@@ -4,71 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reinforcement Algorithm Method</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+
 </head>
 <body class="bg-gray-100">
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-center mb-3">Reinforcement Hirakana</h1>
-        <h2 class="text-3xl font-bold text-center mb-8">あーこ</h2>
-        <div id="startContainer" class="text-center my-8">
-            <button id="startGame" class="bg-green-500 font-semibold text-white px-6 py-3 rounded-lg hover:bg-green-600">
-                Start Game
-            </button>
-        </div>
-        <div id="gameContainer">
-              <!-- Mode Switch -->
-              <div class="text-center mb-6">
-                <button id="switchMode" class="bg-blue-500 font-semibold text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Switch Mode: Hiragana ⇄ Romaji
+    <section class="bg-center bg-no-repeat bg-[url('/bg.png')] bg-gray-700 bg-blend-multiply min-h-screen">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white">Welcome to Reinforcement Algorithm Quiz</h1>
+            <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Dibuat untuk menguji algoritma dalam proses penguatan hiragana & katakana || Yuichi 2025</p>
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                <button type="button" id="started" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    Sarted Quiz
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
                 </button>
-            </div>
-            <!-- Flashcard Container -->
-            <div class="max-w-md mx-auto">
-                <div id="flashcard" class="bg-white rounded-xl shadow-lg p-8 mb-4">
-                    <div id="timer" class="text-2xl font-bold text-center my-4"></div>
-                    <div class="text-center">
-                        <p class="font-semibold text-red-600" id="timer"></p>
-                        <p id="question" class="text-8xl mb-4"></p>
-                        <input autocomplete="off" type="text" id="answer" 
-                               class="w-full p-2 border rounded mb-4 text-center" 
-                               placeholder="Masukkan jawaban">
-                        <button id="checkAnswer" 
-                                class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-                            Submit
-                        </button>
-                    </div>
-                </div>
-    
-                <!-- Final Results (hidden by default) -->
-                <div id="finalResults" class="hidden bg-white rounded-xl shadow-lg p-6">
-                    <h2 class="text-2xl font-bold mb-4">Hasil Akhir</h2>
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div class="text-center p-4 bg-green-100 rounded">
-                            <p id="finalCorrect" class="text-2xl font-bold text-green-600">0</p>
-                            <p class="text-sm text-gray-600">Jawaban Benar</p>
-                        </div>
-                        <div class="text-center p-4 bg-red-100 rounded">
-                            <p id="finalWrong" class="text-2xl font-bold text-red-600">0</p>
-                            <p class="text-sm text-gray-600">Jawaban Sering Salah</p>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="font-semibold text-green-600 mb-2">Karakter yang Benar:</h3>
-                            <div id="correctChars" class="overflow-x-auto"></div>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-red-600 mb-2">Karakter yang sering Salah:</h3>
-                            <div id="wrongChars" class="overflow-x-auto"></div>
-                        </div>
-                    </div>
-                    <button id="restartGame" class="mt-6 w-full bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
-                        Mulai Ulang
-                    </button>
-                </div>
+                 
             </div>
         </div>
-    </div>
-    <script src="main.js"></script>
+    </section>
+    <section class="bg-center bg-no-repeat bg-[url('/bg.png')] bg-gray-700 bg-blend-multiply min-h-screen">
+        <div id="quiz-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-5 p-6">
+            <!-- Card 1 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana あーこ</h1>
+              <p class="text-gray-600 mb-4">Inluded : あいうえおかきくけこ</p>
+              <a href="/Hiragana/hiragana1.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-purple-600 to-blue-500">Learn More</a>
+            </div>
+          
+            <!-- Card 2 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana がーそ</h1>
+              <p class="text-gray-600 mb-4">Included : がぎぐげごさしすせそ</p>
+              <a href="/Hiragana/hiragana2.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-cyan-600 to-blue-500">Learn More</a>
+            </div>
+          
+            <!-- Card 3 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana ばーぽ</h1>
+              <p class="text-gray-600 mb-4">Included : ばびぶべぼぱぴぷぺぽ</p>
+              <a href="/Hiragana/hiragana3.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-blue-600 to-green-500">Learn More</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana たーの</h1>
+              <p class="text-gray-600 mb-4">Included : たちつてとなにぬねの</p>
+              <a href="/Hiragana/hiragana4.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-purple-600 to-orange-500">Learn More</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana まーろ</h1>
+              <p class="text-gray-600 mb-4">Included : まみむめもらりるれろ</p>
+              <a href="/Hiragana/hiragana5.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-purple-600 to-yellow-500">Learn More</a>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana ざーど</h1>
+              <p class="text-gray-600 mb-4">Included : ざじずぜぞだぢづでど</p>
+              <a href="/Hiragana/hiragana6.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-red-600 to-purple-500">Learn More</a>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana はーん</h1>
+              <p class="text-gray-600 mb-4">Included : はひふへほやゆよわをん</p>
+              <a href="/Hiragana/hiragana7.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-purple-600 to-cyan-500">Learn More</a>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana きゃーちょ</h1>
+              <p class="text-gray-600 mb-4">Included : きゃきゅきょしゃしゅしょちゃちゅちょ</p>
+              <a href="/Hiragana/hiragana8.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-cyan-600 to-green-500">Learn More</a>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+              <h1 class="text-xl font-bold mb-4">Hiragana ひゃーにょ</h1>
+              <p class="text-gray-600 mb-4">Included : ひゃひゅひょりゃりゅりょにゃにゅにょ</p>
+              <a href="/Hiragana/hiragana9.html" class="px-4 py-3 font-semibold text-white rounded-lg bg-gradient-to-br from-green-600 to-blue-500">Learn More</a>
+            </div>
+          </div>
+          
+    </section>
+    <script defer>
+        document.getElementById('started').addEventListener('click', function () {
+  const quizContent = document.getElementById('quiz-content');
+  
+  // Scroll to the element smoothly
+  quizContent.scrollIntoView({ behavior: 'smooth' });
+});
+
+    </script>
 </body>
 </html>
